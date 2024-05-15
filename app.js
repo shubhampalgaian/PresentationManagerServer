@@ -2,7 +2,9 @@ const express = require('express')
 const app = express()
 const port = 4000 // Choose any port number you prefer
 const { retrieveData } = require('./castingFunc')
-const cors = require('cors')
+const cors = require('cors');
+const { continuousDiscovery } = require('./getdevices');
+
 
 // Middleware to parse JSON bodies
 app.use(express.json())
@@ -29,6 +31,8 @@ app.post(
   },
   retrieveData
 )
+
+continuousDiscovery();
 
 // Start the server
 app.listen(port, () => {
