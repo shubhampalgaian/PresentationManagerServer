@@ -5,11 +5,11 @@ const ping = require("ping");
 // const { devices } = require('./server');
 let device = [];
 
-const retrieveData = (req, res) => {
+const retrieveData = async (req, res) => {
   device = req.body;
   console.log("DATA");
   console.log(device);
-  main();
+  await main();
 
   res.send("SUCCESS");
 };
@@ -128,7 +128,7 @@ async function main() {
       await startCasting(device[index]);
     }
   }
-  console.log("inside stop cast-------");
+  return "done";
 }
 
 module.exports = { retrieveData };

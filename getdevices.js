@@ -79,6 +79,4 @@ async function continuousDiscovery() {
 }
 
 // Start the device discovery
-module.exports = {
-  continuousDiscovery
-};
+continuousDiscovery();
